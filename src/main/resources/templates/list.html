@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<body>
+
+<div layout:fragment="header">
+</div>
+
+        <div layout:fragment="content" class="container">
+            <div class="pull-right">
+                <a href="new.html" th:href="@{new}">Create Student Application</a>
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>University</td>
+                    <td>Amount</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:if="${students.empty}">
+                    <td colspan="3">
+                        No applications
+                    </td>
+                </tr>
+                <tr th:each="s : ${students}">
+                    <td><a th:href="@{'form/' + ${s.id}}" th:text="${s.id}">/form.html</a></td>
+                    <td th:text="${s.name}">John Smith</td>
+                    <td th:text="${s.university}">Leeds</td>
+                    <td th:text="'£' + ${s.tuitionFee}">£9000</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </body>
+</html>

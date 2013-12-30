@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+    <body>
+
+        <div layout:fragment="header">
+            <h2>Your refference number is: <span th:text="${student.id}"/></h2>
+            <img src="/qr.png" th:src="@{/qr.png(id=*{id})}"/>
+        </div>
+
+        <div layout:fragment="content" class="container">
+
+
+            <form action="#" th:action="@{/apply}" th:object="${student}"  method="GET">
+
+                <label for="name" >Name</label>
+                <input id="name" type="text" th:field="*{name}" readonly="true" />
+                <label for="uni" >University</label>
+                <input id="uni" type="text" th:field="*{university}" readonly="true" />
+                <label for="fee" >Tuition Fee</label>
+                <input id="fee" type="number" th:field="*{tuitionFee}" readonly="true" />
+                <br/>
+                <br/>
+
+
+                <a href="/form.pdf" th:href="@{/form.pdf(id=*{id})}">Download as pdf</a>
+
+            </form>
+        </div>
+    </body>
+</html>

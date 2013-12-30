@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      layout:decorator="layout">
+<body>
+
+<p layout:fragment="top">
+    Hello world
+</p>
+
+<div layout:fragment="header"><h2>Student Application : New</h2></div>
+<div layout:fragment="content" class="container">
+    <form action="#" th:action="@{save}" th:object="${student}"  method="POST">
+
+        <label for="name" >Name</label>
+        <p class="alert alert-error" th:each="error : ${#fields.errors('name')}" th:text="${error}">Validation error</p>
+        <input id="name" type="text" th:field="*{name}" />
+
+        <label for="uni" >University</label>
+        <p class="alert alert-error" th:each="error : ${#fields.errors('university')}" th:text="${error}">Validation error</p>
+        <input id="uni" type="text" th:field="*{university}" />
+
+        <label for="fee" >Tutition Fee</label>
+        <p class="alert alert-error" th:each="error : ${#fields.errors('tuitionFee')}" th:text="${error}">Validation error</p>
+        <input id="fee" type="number" th:field="*{tuitionFee}" />
+
+        <div class="form-actions">
+            <input type="submit" value="Apply"/>
+        </div>
+    </form>
+</div>
+</body>
+</html>
