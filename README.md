@@ -1,4 +1,4 @@
-CHRISTMAS 2013 PROOF OF CONCEPT
+CHRISTMAS 2013 POC
 ===============================
 
 Primary Aims:
@@ -17,10 +17,10 @@ QR Code
 -------
 What is a QR code ?  See [here](http://en.wikipedia.org/wiki/QR_code) for the wikipedia entry.  A QR barcode looks like one of these:
 
-![QR Barcode](http://en.wikipedia.org/wiki/File:Wikipedia_mobile_en.svg)
+![QR Barcode](http://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Wikipedia_mobile_en.svg/200px-Wikipedia_mobile_en.svg.png)
 
 Encoded in those dots is a message.  It can store a lot more information than standard stripey bar code.
-I'm going to use [GRGen](https://github.com/kenglxn/QRGen) which is an API built on top of [ZXing]https://code.google.com/p/zxing.  The plan is to wrap this in a servlet.
+I'm going to use [GRGen](https://github.com/kenglxn/QRGen) which is an API built on top of [ZXing](https://code.google.com/p/zxing).  The plan is to wrap this in a servlet.
 
 
 PDF from HTML
