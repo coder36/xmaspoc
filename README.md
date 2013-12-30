@@ -11,6 +11,7 @@ Secondary Aims:
 * Investigate Spring boot
 * Integrate Spring boot and JSF
 * Integrate Groovy into a java project.
+* Setup a gradle project
 
 
 QR Code
@@ -115,10 +116,20 @@ Groovy integration is as simple as adding a build plugin to the maven pom file. 
 Putting it all together
 =======================
 
+Using maven:
+
     git clone http://github.com/coder36/xmaspoc
     cd xmaspoc
     mvn clean install
     java -jar target/xmaspoc-0.1-SNAPSHOT.jar
+
+Using gradle
+
+    git clone http://github.com/coder36/xmaspoc
+    cd xmaspoc
+    gradlew build
+    java -jar build/libs/xmaspoc-0.1.jar
+
 
 Navigate to http://localhost:8080/
 

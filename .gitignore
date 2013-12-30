@@ -2,5 +2,8 @@
 .project
 .springbeans
 .settings/
+.idea
+.gradle
 *.iml
 target/
+build/

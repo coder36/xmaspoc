@@ -1,0 +1,54 @@
+apply plugin: 'groovy'
+apply plugin: 'eclipse'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+prepareGroovyPaths()
+
+buildscript {
+    repositories {
+        maven { url "http://repo.spring.io/libs-snapshot" }
+        mavenLocal()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:0.5.0.BUILD-SNAPSHOT")
+    }
+}
+
+def prepareGroovyPaths(){
+    sourceSets {
+        main {
+            groovy {
+                srcDirs = ['src/main/java']
+            }
+        }
+    }
+}
+
+jar {
+    baseName = 'xmaspoc'
+    version =  '0.1'
+}
+
+repositories {
+    mavenCentral()
+    maven { url "http://repo.spring.io/libs-snapshot" }
+}
+
+dependencies {
+    compile("org.springframework.boot:spring-boot-starter-web:0.5.0.BUILD-SNAPSHOT")
+    compile("org.springframework.boot:spring-boot-starter-actuator:0.5.0.BUILD-SNAPSHOT")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa:0.5.0.BUILD-SNAPSHOT")
+    compile("org.codehaus.groovy:groovy-all:2.2.1")
+    compile("org.xhtmlrenderer:flying-saucer-pdf:9.0.3")
+    compile("net.glxn:qrgen:1.2")
+    compile("org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE")
+    compile("nz.net.ultraq.thymeleaf:thymeleaf-layout-dialect:1.2")
+    compile("com.sun.faces:jsf-api:2.2.4")
+    compile("com.sun.faces:jsf-impl:2.2.4")
+    compile("org.projectlombok:lombok:0.11.6")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '1.8'
+}
